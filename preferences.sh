@@ -10,6 +10,17 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_alt_win
 gsettings set org.gtk.Settings.FileChooser sort-directories-first 'true'
 gsettings set org.gnome.nautilus.preferences show-create-link 'true'
 #
+# Evolution Configuration
+gsettings set org.gnome.evolution.shell buttons-style 'icons'
+gsettings set org.gnome.evolution.shell menubar-visible 'true'
+gsettings set org.gnome.evolution.shell statusbar-visible 'false'
+gsettings set org.gnome.evolution.mail show-to-do-bar 'false'
+gsettings set org.gnome.evolution.mail composer-show-cc 'false'
+gsettings set org.gnome.evolution.mail composer-send-html 'true'
+gsettings set org.gnome.evolution.mail composer-inherit-theme-colors 'false'
+gsettings set org.gnome.evolution.mail composer-outlook-filenames 'true'
+gsettings set org.gnome.evolution.mail composer-sign-reply-if-signed 'true'
+#
 # Optional GNOME Settings
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click 'true'
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll 'true'
@@ -33,7 +44,6 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-up "['<Alt><Super
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "['<Alt><Super>Down']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Alt><Super>Right']"
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Alt><Super>Left']"
-#
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Primary><Super>Left']"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Primary><Super>Right']"
 #
