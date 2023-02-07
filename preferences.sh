@@ -6,6 +6,17 @@ sed -i.bak -e 's/^PercentageLow.*/PercentageLow=15/' -e 's/^PercentageCritical.*
 # GNOME Set Unix Style Keyboard Layout
 gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_alt_win','ctrl:swapcaps']"
 #
+# Nautilus Configuration
+gsettings set org.gtk.Settings.FileChooser sort-directories-first 'true'
+gsettings set org.gnome.nautilus.preferences show-create-link 'true'
+#
+# Optional GNOME Settings
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click 'true'
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll 'true'
+#gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
+#gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
+#gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'adaptive'
+#
 # GNOME More Shortcut Keys
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys email "['<Super>e']"
