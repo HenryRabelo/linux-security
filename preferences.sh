@@ -4,7 +4,7 @@
 sed -i.bak -e 's/^PercentageLow.*/PercentageLow=15/' -e 's/^PercentageCritical.*/PercentageCritical=5/' -e 's/^PercentageAction.*/PercentageAction=3/' -e 's/^CriticalPowerAction.*/CriticalPowerAction=Hibernate/' /etc/UPower/UPower.conf
 #
 # GNOME Set Unix Style Keyboard Layout
-gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_alt_win','ctrl:swapcaps']"
+gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin','ctrl:swapcaps']"
 #
 # Nautilus Configuration
 gsettings set org.gtk.Settings.FileChooser sort-directories-first 'true'
