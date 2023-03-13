@@ -19,8 +19,8 @@ sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS[^\s]*/SHA_CRYPT_MIN_ROUNDS 6000000/' /e
 #nano /etc/login.defs
 
 # Harden Network Manager Settings
-cp ./conf/network_hardening.conf /etc/NetworkManager/conf.d/
+cp $(pwd)/conf/network_hardening.conf /etc/NetworkManager/conf.d/
 nmcli general reload
 
 # Harden Kernel Settings
-cp ./conf/kernel_hardening.conf /etc/modprobe.d/
+cp $(pwd)/conf/kernel_hardening.conf /etc/modprobe.d/
