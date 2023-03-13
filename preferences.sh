@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Low Battery Warning from 20% to 30%
-sudo sed -i.bak -e 's/^PercentageLow[^=]*/PercentageLow=30/' -e 's/^PercentageCritical[^=]*/PercentageCritical=10/' -e 's/^PercentageAction[^=]*/PercentageAction=5/' /etc/UPower/UPower.conf
+sudo sed -i.bak -e 's/^PercentageLow.*/PercentageLow=30/' -e 's/^PercentageCritical.*/PercentageCritical=10/' -e 's/^PercentageAction.*/PercentageAction=5/' /etc/UPower/UPower.conf
 
 # GNOME Set Unix Style Keyboard Layout
 gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin','ctrl:swapcaps']"
