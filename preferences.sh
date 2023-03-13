@@ -1,15 +1,15 @@
 #!/bin/bash
-#
+
 # Low Battery Warning from 20% to 30%
-sed -i.bak -e 's/^PercentageLow.*/PercentageLow=15/' -e 's/^PercentageCritical.*/PercentageCritical=5/' -e 's/^PercentageAction.*/PercentageAction=3/' -e 's/^CriticalPowerAction.*/CriticalPowerAction=Hibernate/' /etc/UPower/UPower.conf
-#
+sudo sed -i.bak -e 's/^PercentageLow[^=]*/PercentageLow=30/' -e 's/^PercentageCritical[^=]*/PercentageCritical=10/' -e 's/^PercentageAction[^=]*/PercentageAction=5/' /etc/UPower/UPower.conf
+
 # GNOME Set Unix Style Keyboard Layout
 gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin','ctrl:swapcaps']"
-#
+
 # Nautilus Configuration
 gsettings set org.gtk.Settings.FileChooser sort-directories-first 'true'
 gsettings set org.gnome.nautilus.preferences show-create-link 'true'
-#
+
 # Evolution Configuration
 gsettings set org.gnome.evolution.shell buttons-style 'icons'
 gsettings set org.gnome.evolution.shell menubar-visible 'true'
@@ -20,19 +20,19 @@ gsettings set org.gnome.evolution.mail composer-send-html 'true'
 gsettings set org.gnome.evolution.mail composer-inherit-theme-colors 'false'
 gsettings set org.gnome.evolution.mail composer-outlook-filenames 'true'
 gsettings set org.gnome.evolution.mail composer-sign-reply-if-signed 'true'
-#
+
 # Optional GNOME Settings
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click 'true'
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll 'true'
 #gsettings set org.gnome.settings-daemon.plugins.power power-button-action 'interactive'
 #gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
 #gsettings set org.gnome.desktop.peripherals.mouse accel-profile 'adaptive'
-#
+
 # GNOME More Shortcut Keys
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys email "['<Super>e']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Super>c']"
-#
+
 # GNOME Simpler Window Management Controls
 gsettings set org.gnome.desktop.wm.keybindings maximize "['<Primary><Super>Up','<Super>Up']"
 gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Primary><Super>Down','<Super>Down']"
@@ -46,4 +46,3 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-right "['<Alt><Su
 gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-left "['<Alt><Super>Left']"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Primary><Super>Left']"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Primary><Super>Right']"
-#
