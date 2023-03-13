@@ -13,7 +13,7 @@ chmod 700 /home/*
 systemctl disable cups
 
 # Buff /etc/login.defs password encryption rounds value
-sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS[^\s]*/SHA_CRYPT_MIN_ROUNDS 6000000/' /etc/login.defs
+sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS.*/SHA_CRYPT_MIN_ROUNDS 6000000/' /etc/login.defs
 
 # Make /etc/login.defs UMASK value 27 or 77
 #nano /etc/login.defs
