@@ -1,9 +1,19 @@
 #!/bin/bash
 # Install Ubuntu with ZFS
 
+# Set ZSH Configurations
 wget --https-only -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc
+cat $HOME/.bash_history >> $HOME/.zsh_history
 
-apt install zsh zsh-autosuggestions zsh-syntax-highlighting
-apt install zram-config
+# Simplify ZSH PROMPT
+echo "PROMPT=$'${debian_chroot:+($debian_chroot)}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))}%B%F{%(#.red.blue)}%n@%m%b%F{%(#.blue.green)}-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]%B%(#.%F{red}#.%F{white}%%)%b%F{reset} '" >> $HOME/.zshrc
 
-#apt install zfs-auto-snapshot
+# ZSH and ZSH Plugins
+sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting
+
+# ZFS Auto Snapshot for Ubuntu and ZRAM Configuration
+#sudo apt install zfs-auto-snapshot
+sudo apt install zram-config
+
+# Change Login Shell for User
+chsh --shell /bin/zsh $USER
