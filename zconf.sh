@@ -6,7 +6,7 @@ wget --https-only -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-def
 cat $HOME/.bash_history >> $HOME/.zsh_history
 
 # Familiarize Pre-Set Prompt
-echo "PROMPT='\${debian_chroot:+(\$debian_chroot)─}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))─}%B%F{%(#.red.green)}%n@%m%b%F{%(#.green.cyan)}-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.green.cyan)}]%(#.%F{red}#.%F{reset}%%)%F{reset} '" >> $HOME/.zshrc
+echo "PROMPT='\${debian_chroot:+(\$debian_chroot)}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))}%B%F{%(#.red.green)}%n@%m%b%F{%(#.green.cyan)}-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.green.cyan)}]%(#.%F{red}#.%F{reset}%%)%F{reset} '" >> $HOME/.zshrc
 
 # ZSH and ZSH Plugins
 sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting
