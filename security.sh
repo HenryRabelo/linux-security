@@ -23,4 +23,4 @@ cp $(pwd)/conf/network_hardening.conf /etc/NetworkManager/conf.d/
 nmcli general reload
 
 # Harden Kernel Settings
-cp $(pwd)/conf/kernel_hardening.conf /etc/modprobe.d/
+cp $(pwd)/conf/blacklist_hardening.conf /etc/modprobe.d/
