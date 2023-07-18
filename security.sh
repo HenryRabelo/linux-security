@@ -22,5 +22,8 @@ sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS.*/SHA_CRYPT_MIN_ROUNDS 6000000/' /etc/l
 cp $(pwd)/conf/network_hardening.conf /etc/NetworkManager/conf.d/
 nmcli general reload
 
-# Harden Kernel Settings
+# Minimize Loaded Functionality
 cp $(pwd)/conf/blacklist_hardening.conf /etc/modprobe.d/
+
+# Harden Kernel Settings
+cp $(pwd)/conf/kernel_hardening.conf /etc/sysctl.d/
