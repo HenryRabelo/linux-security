@@ -6,10 +6,13 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
-# Make home directory accessible to owner only:
+# Make home directory accessible to owner only
 chmod 700 /home/*
 
-# Disable printer search:
+# Make sensitive directories accessible to owner only
+chmod 700 /boot /usr/src /lib/modules /usr/lib/modules
+
+# Disable printer search
 systemctl disable cups
 
 # Buff /etc/login.defs password encryption rounds value
