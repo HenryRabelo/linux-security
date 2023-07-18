@@ -18,6 +18,10 @@ sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS.*/SHA_CRYPT_MIN_ROUNDS 6000000/' /etc/l
 # Make /etc/login.defs UMASK value 27 or 77
 #nano /etc/login.defs
 
+# Set Unique Machine-ID to Generic Whonix-ID
+echo "b08dfa6083e7567a1921a715000001fb" > /var/lib/dbus/machine-id
+echo "b08dfa6083e7567a1921a715000001fb" > /etc/machine-id
+
 # Harden Network Manager Settings
 cp $(pwd)/conf/network_hardening.conf /etc/NetworkManager/conf.d/
 nmcli general reload
