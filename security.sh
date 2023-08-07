@@ -12,6 +12,9 @@ chmod 700 /home/*
 # Make sensitive directories accessible to owner only
 chmod 700 /boot /usr/src /lib/modules /usr/lib/modules
 
+# Set hostname to generic value
+hostnamectl hostname "localhost"
+
 # Disable printer search
 systemctl disable cups
 
