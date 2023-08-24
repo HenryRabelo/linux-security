@@ -1,10 +1,15 @@
 #!/bin/bash
+# GNOME Preferences
 
 # Low Battery Warning from 20% to 30%
 sudo sed -i.bak -e 's/^PercentageLow.*/PercentageLow=30/' -e 's/^PercentageCritical.*/PercentageCritical=10/' -e 's/^PercentageAction.*/PercentageAction=5/' /etc/UPower/UPower.conf
 
-# GNOME Set Unix Style Keyboard Layout
+# Set Unix Style Keyboard Layout
 gsettings set org.gnome.desktop.input-sources xkb-options "['altwin:swap_lalt_lwin','ctrl:swapcaps']"
+
+# Disable Automount
+gsettings set org.gnome.desktop.media-handling automount false
+gsettings set org.gnome.desktop.media-handling automount-open false 
 
 # Nautilus Configuration
 gsettings set org.gtk.Settings.FileChooser sort-directories-first 'true'
