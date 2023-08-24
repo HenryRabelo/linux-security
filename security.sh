@@ -28,6 +28,9 @@ sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS.*/SHA_CRYPT_MIN_ROUNDS 6000000/' /etc/l
 echo "b08dfa6083e7567a1921a715000001fb" > /tmp/machine-id
 cp /tmp/machine-id /etc/machine-id
 
+# Harden Chrony and use NTS instead of NTP
+cp $(pwd)/conf/chrony_hardening.conf /etc/chrony.conf
+
 # Harden Network Manager Settings
 cp $(pwd)/conf/network_hardening.conf /etc/NetworkManager/conf.d/
 nmcli general reload
