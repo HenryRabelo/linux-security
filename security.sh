@@ -24,9 +24,9 @@ sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS.*/SHA_CRYPT_MIN_ROUNDS 6000000/' /etc/l
 # Make /etc/login.defs UMASK value 27 or 77 (Could break functionality)
 #nano /etc/login.defs
 
-# Set Unique Machine-ID to Generic Whonix-ID
-echo "b08dfa6083e7567a1921a715000001fb" > /tmp/machine-id
-cp /tmp/machine-id /etc/machine-id
+# Set Unique Machine-ID to Generic Whonix-ID (Could break with multiple machines on a network)
+#echo "b08dfa6083e7567a1921a715000001fb" > /tmp/machine-id
+#cp /tmp/machine-id /etc/machine-id
 
 # Harden Chrony and use NTS instead of NTP
 cp $(pwd)/conf/chrony_hardening.conf /etc/chrony.conf
