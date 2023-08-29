@@ -12,7 +12,7 @@ chmod 700 /home/*
 # Make sensitive directories accessible to owner only
 chmod 700 /boot /usr/src /lib/modules /usr/lib/modules
 
-# Set hostname to generic value
+# Set hostname to generic value (Could cause problems when identification is desirable)
 hostnamectl hostname "localhost"
 
 # Disable printer search
@@ -30,6 +30,9 @@ sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS.*/SHA_CRYPT_MIN_ROUNDS 6000000/' /etc/l
 
 # Harden Chrony and use NTS instead of NTP
 cp $(pwd)/conf/chrony_hardening.conf /etc/chrony.conf
+
+# Harden DNS to use DNSSEC
+cp $(pwd)/conf/dns_hardening.conf /etc/systemd/resolved.conf.d/
 
 # Harden Network Manager Settings
 cp $(pwd)/conf/network_hardening.conf /etc/NetworkManager/conf.d/
