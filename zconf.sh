@@ -3,6 +3,7 @@
 
 # Set ZSH Configurations
 wget --https-only -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc
+wget --https-only -O $HOME/.zprofile https://src.fedoraproject.org/rpms/zsh/raw/rawhide/f/dotzprofile
 cat $HOME/.bash_history >> $HOME/.zsh_history
 
 # Familiarize Pre-Set Prompt
