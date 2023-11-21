@@ -1,20 +1,46 @@
-#!/bin/bash
-# Install Ubuntu with ZFS
+#!/bin/sh
+
+###
+
+# ZSH Profiles #
 
 # Set ZSH Configurations
 wget --https-only -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc
 wget --https-only -O $HOME/.zprofile https://src.fedoraproject.org/rpms/zsh/raw/rawhide/f/dotzprofile
 cat $HOME/.bash_history >> $HOME/.zsh_history
 
-# Familiarize Pre-Set Prompt
+# Familiarize Shell Prompt
 echo "PROMPT='\${debian_chroot:+(\$debian_chroot)}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))}%B%F{%(#.red.green)}%n@%m%b%F{%(#.green.cyan)}-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.green.cyan)}]%(#.%F{red}#.%F{reset}%%)%F{reset} '" >> $HOME/.zshrc
 
-# ZSH and ZSH Plugins
-sudo apt install zsh zsh-autosuggestions zsh-syntax-highlighting
+# Normalize permissions
+chown $USER $HOME/.z*
+
+###
+
+# ZSH Configuration #
+
+# ZSH and Plugins
+apt install zsh zsh-autosuggestions zsh-syntax-highlighting
+
+# Change Login Shell for Users
+chsh --shell /bin/zsh $USER
+#chsh --shell /bin/zsh root
+
+# Change Shell System-Wide (May cause instability)
+#ln -s /bin/zsh /usr/local/bin/sh #Ensures there's a sh available in root's $PATH
+#apt remove --allow-remove-essential bash
+#apt remove --allow-remove-essential dash
+#rm /bin/sh
+#ln -s /bin/zsh /bin/sh #Recreates sh link
+#rm /usr/local/bin/sh #Removes temporary sh link
+#rm $HOME/.bash*
+
+###
+
+# Ubuntu with ZFS #
 
 # ZFS Auto Snapshot for Ubuntu and ZRAM Configuration
-#sudo apt install zfs-auto-snapshot
-sudo apt install zram-config
+#apt install zfs-auto-snapshot
+apt install zram-config
 
-# Change Login Shell for User
-chsh --shell /bin/zsh $USER
+###
