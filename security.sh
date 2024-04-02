@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ "$EUID" -ne 0 ]; then
+if [ $(id -u) -ne 0 ]; then
   echo 'Error: No super-user authorization.'
   echo 'Type the command "sudo !!" to re-run this script as root.'
   exit 1
