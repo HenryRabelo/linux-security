@@ -5,8 +5,8 @@
 # ZSH Profiles #
 
 # Set ZSH Configurations
-wget --https-only -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc
-wget --https-only -O $HOME/.zprofile https://src.fedoraproject.org/rpms/zsh/raw/rawhide/f/dotzprofile
+wget --https-only --no-hsts -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc
+wget --https-only --no-hsts -O $HOME/.zprofile https://src.fedoraproject.org/rpms/zsh/raw/rawhide/f/dotzprofile
 cat $HOME/.bash_history >> $HOME/.zsh_history
 
 # Familiarize Shell Prompt
@@ -42,5 +42,9 @@ chsh --shell /bin/zsh $USER
 # ZFS Auto Snapshot for Ubuntu and ZRAM Configuration
 #apt install zfs-auto-snapshot
 apt install zram-config
+
+# Enable Uncomplicated Firewall and allow GSConnect Port
+ufw enable
+ufw allow 1714:1764/udp
 
 ###
