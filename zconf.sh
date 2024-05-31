@@ -1,23 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-###
+####
 
-# ZSH Profiles #
-
-# Set ZSH Configurations
-wget --https-only --no-hsts -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc
-wget --https-only --no-hsts -O $HOME/.zprofile https://src.fedoraproject.org/rpms/zsh/raw/rawhide/f/dotzprofile
-cat $HOME/.bash_history >> $HOME/.zsh_history
-
-# Familiarize Shell Prompt
-echo "PROMPT='\${debian_chroot:+(\$debian_chroot)}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))}%B%F{%(#.red.green)}%n@%m%b%F{%(#.green.cyan)}-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.green.cyan)}]%(#.%F{red}#.%F{reset}%%)%F{reset} '" >> $HOME/.zshrc
-
-# Normalize permissions
-chown $USER $HOME/.z*
-
-###
-
-# ZSH Configuration #
+## ZSH Configuration ##
 
 # ZSH and Plugins
 apt install zsh zsh-autosuggestions zsh-syntax-highlighting
@@ -35,16 +20,40 @@ chsh --shell /bin/zsh $USER
 #rm /usr/local/bin/sh #Removes temporary sh link
 #rm $HOME/.bash*
 
-###
+####
 
-# Ubuntu with ZFS #
+## ZSH Profiles ##
 
-# ZFS Auto Snapshot for Ubuntu and ZRAM Configuration
-#apt install zfs-auto-snapshot
+# Set ZSH Configurations
+wget --https-only --no-hsts -O $HOME/.zshrc https://gitlab.com/kalilinux/packages/kali-defaults/-/raw/kali/master/etc/skel/.zshrc
+wget --https-only --no-hsts -O $HOME/.zprofile https://src.fedoraproject.org/rpms/zsh/raw/rawhide/f/dotzprofile
+cat $HOME/.bash_history $HOME/.zsh_history > $HOME/.zsh_history
+
+# Familiarize Shell Prompt
+echo "PROMPT='\${debian_chroot:+(\$debian_chroot)}\${VIRTUAL_ENV:+(\$(basename \$VIRTUAL_ENV))}%B%F{%(#.red.green)}%n@%m%b%F{%(#.green.cyan)}-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.green.cyan)}]%(#.%F{red}#%F{reset}.%F{reset}%%) '" >> $HOME/.zshrc
+
+# Normalize permissions
+chown $USER $HOME/.z*
+
+####
+
+## Ubuntu with ZFS ##
+
+# ZFS Auto Snapshot for Ubuntu / ZRAM Configuration
+#apt install zsys
 apt install zram-config
 
-# Enable Uncomplicated Firewall and allow GSConnect Port
-ufw enable
-ufw allow 1714:1764/udp
+# Install Chrony for more configurable time sync
+apt install chrony
 
-###
+# Install more AppArmor profiles
+apt install apparmor-profiles apparmor-profiles-extra
+
+# Enable APT SecComp Sandbox
+echo "APT::Sandbox::Seccomp "true";" > /etc/apt/apt.conf.d/40sandbox
+
+# Enable Uncomplicated Firewall / allow GSConnect Port
+ufw enable
+#ufw allow 1714:1764/udp
+
+####
