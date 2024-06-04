@@ -1,5 +1,5 @@
 # Linux Customizations
-[![Linux Badge](https://img.shields.io/badge/Made_for_Linux-FCC624?logo=linux&logoColor=black&labelColor=white)](https://distrowatch.com/dwres.php?resource=popularity)
+[![Linux Badge](https://img.shields.io/badge/Made_for_Linux-black?logo=linux&logoColor=black&labelColor=white)](https://distrowatch.com/dwres.php?resource=popularity)
 
 List of customizations some installations may benefit from.
 Not every install utilizes all of the uploaded preferences at one given time.
