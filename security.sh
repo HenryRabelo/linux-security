@@ -27,6 +27,9 @@ sed -i.bak -e 's/^#*SHA_CRYPT_MIN_ROUNDS.*/SHA_CRYPT_MIN_ROUNDS 6000000/' "/etc/
 # Set Unique Machine-ID to Generic Whonix-ID (Should not cause problems, but a bootable snapshot before this is recommended)
 echo "b08dfa6083e7567a1921a715000001fb" > "/etc/machine-id"
 
+# Completely lock away the root user shell, as it should never be accessible (Be sure to have access to an administrative user)
+usermod --shell "/sbin/nologin" --lock root
+
 # Harden Chrony and use NTS instead of NTP
 cp "$(pwd)/conf/chrony_hardening.conf" "/etc/chrony.conf"
 
