@@ -1,10 +1,37 @@
+<div align="center">
+
 # Linux Security Configurations
+### A list of security configurations for Linux installations.
 [![Linux Badge](https://img.shields.io/badge/Made_for_Linux-black?logo=linux&logoColor=black&labelColor=white)](https://distrowatch.com/dwres.php?resource=popularity)
 ![Settings Badge](https://custom-icon-badges.demolab.com/badge/Security_Configs-firebrick?logo=shield&logoSource=feather&logoColor=firebrick&labelColor=white)
+#
 
-List of security configurations for Linux installations.
+[![Intro Badge](https://img.shields.io/badge/Intro-151515)](#introduction) <sup> **•** </sup>
+[![Intro Badge](https://img.shields.io/badge/Run_it-151515)](#how-to-run-it) <sup> **•** </sup>
+[![Intro Badge](https://img.shields.io/badge/Use_it-151515)](#how-to-use-it) <sup> **•** </sup>
+[![Intro Badge](https://img.shields.io/badge/About_Security-151515)](#about-security)
+
+</div>
+
+### Introduction
+This is a personal repository of shell scripts and configuration files for various Linux installations, which harden and up various aspects of the security for those systems. This repository will include scripts for system hardening & for other tools which warrant it.
 
 This is **not** an exhaustive listing of all the security configurations used at any given time, as more tunings are made depending on the installation.
+
+### How to Run it
+Simply give execution permissions & run the shell script with the select configuration, located at the root directory of the repository:
+
+```sh
+cd linux-security
+
+chmod +x $(pwd)/security.sh
+$(pwd)/security.sh
+```
+
+### How to Use it
+Run the shell script that sets the desired configuration and reboot the computer after a successful run. Always vet the commands run by shell scripts downloaded from the internet and non-official repositories before running them.
+
+The scripts are meant to be set-and-forget, and as such minimal interaction is necessary.
 
 ## About Security
 ### Sources
@@ -32,4 +59,11 @@ Heavy referencing of ChromeOS' design decisions was made in order to choose hard
 - Kernel Lockdown in Confidentiality Mode (_lockdown=confidentiality_)
   - Disables **kexec**, **bpf**, **debugfs**, enforces Kernel Module signing with Secure Boot.
 
-[...]
+[...] (More to be written in the future)
+##
+
+<div align="center">
+
+[![Back to the Top Badge](https://custom-icon-badges.demolab.com/badge/Back_to_the_Top-151515?logo=chevron-up)](#linux-containers-dockerfiles)
+
+</div>
